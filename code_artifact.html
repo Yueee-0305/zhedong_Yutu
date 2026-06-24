@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明代浙东舆图 - 平铺流动背景配置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 隐藏滚动条 */
+        body { margin: 0; overflow: hidden; background-color: #111; }
+        
+        /* 默认滚动容器基础样式 */
+        #flowing-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -999; /* 确保背景在最底层，不影响您的手势追踪画布 */
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+    </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+    <!-- 流动背景层 -->
+    <div id="flowing-bg"></div>
+
+    <!-- UI 控制面板 -->
+    <div class="relative w-full h-full p-6 md:p-10 flex justify-start items-center pointer-events-none">
+        <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-700 shadow-2xl rounded-2xl p-6 w-full max-w-md pointer-events-auto flex flex-col max-h-[90vh]">
+            
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold text-white mb-2 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    舆图平铺流动配置
+                </h1>
+                <p class="text-sm text-slate-400">调整参数以适应您的手势系统。设置完成后复制底部代码集成到您的网页中。</p>
+            </div>
+
+            <div class="space-y-5 overflow-y-auto pr-2 pb-4">
+                <!-- 图片 URL 输入 -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">您的图纸 URL (支持本地路径如 ./assets/map.jpg)</label>
+                    <input type="text" id="img-url" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-2.5 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" value="https://images.unsplash.com/photo-1532153955177-f59af40d6472?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <!-- 缩放比例 -->
+                <div>
+                    <label class="flex justify-between text-sm font-medium text-slate-300 mb-1">
+                        <span>图纸显示缩放</span>
+                        <span id="scale-val" class="text-blue-400">1.0x</span>
+                    </label>
+                    <input type="range" id="scale" min="0.2" max="3" step="0.1" value="1" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                </div>
+
+                <!-- 动画速度 -->
+                <div>
+                    <label class="flex justify-between text-sm font-medium text-slate-300 mb-1">
+                        <span>流动周期 (越小越快)</span>
+                        <span id="speed-val" class="text-blue-400">40s</span>
+                    </label>
+                    <input type="range" id="speed" min="5" max="150" step="1" value="40" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                </div>
+
+                <!-- 动画方向 -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">流动方向</label>
+                    <select id="direction" class="w-full bg-slate-800 border border-slate-600 rounded-lg p-2.5 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
+                        <option value="left" selected>向左流动 (水平)</option>
+                        <option value="right">向右流动 (水平)</option>
+                        <option value="up">向上流动 (垂直)</option>
+                        <option value="down">向下流动 (垂直)</option>
+                        <option value="diagonal-tl-br">左上 -> 右下 (对角线)</option>
+                        <option value="diagonal-br-tl">右下 -> 左上 (对角线)</option>
+                    </select>
+                </div>
+                
+                <!-- 代码输出区 -->
+                <div class="mt-6 pt-4 border-t border-slate-700">
+                    <div class="flex justify-between items-end mb-2">
+                        <label class="block text-sm font-medium text-slate-300">生成的集成代码</label>
+                        <button id="copy-btn" class="flex items-center text-xs bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded transition-colors">
+                            <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            一键复制
+                        </button>
+                    </div>
+                    <textarea id="code-output" readonly class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-xs text-green-400 font-mono h-40 resize-none focus:outline-none whitespace-pre"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 消息提示 Toast -->
+    <div id="toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-blue-600 text-white text-sm font-medium rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-50 translate-y-[-20px]">
+        集成代码已复制到剪贴板！
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM 元素获取
+            const imgUrlInput = document.getElementById('img-url');
+            const scaleInput = document.getElementById('scale');
+            const scaleVal = document.getElementById('scale-val');
+            const speedInput = document.getElementById('speed');
+            const speedVal = document.getElementById('speed-val');
+            const dirInput = document.getElementById('direction');
+            const flowingBg = document.getElementById('flowing-bg');
+            const codeOutput = document.getElementById('code-output');
+            const copyBtn = document.getElementById('copy-btn');
+            
+            // 内部状态
+            let natWidth = 1000;
+            let natHeight = 1000;
+
+            // 加载图片以获取真实宽高 (为了完美无缝平铺，背景移动的像素必须等于图片的真实渲染像素)
+            function loadImage(url) {
+                const img = new Image();
+                img.onload = () => {
+                    natWidth = img.naturalWidth || 1000;
+                    natHeight = img.naturalHeight || 1000;
+                    updateAnimation();
+                };
+                img.onerror = () => {
+                    // 若加载失败，使用备用尺寸继续预览逻辑
+                    natWidth = 1000;
+                    natHeight = 800;
+                    updateAnimation();
+                }
+                img.src = url;
+            }
+
+            // 更新动画与代码
+            function updateAnimation() {
+                const scale = parseFloat(scaleInput.value);
+                const speed = parseFloat(speedInput.value);
+                const dir = dirInput.value;
+                const imgUrl = imgUrlInput.value;
+
+                // 更新数值显示
+                scaleVal.textContent = scale.toFixed(1) + 'x';
+                speedVal.textContent = speed + 's';
+
+                // 计算背景平铺尺寸
+                const bgWidth = Math.round(natWidth * scale);
+                const bgHeight = Math.round(natHeight * scale);
+
+                // 计算动画目标的 X Y 偏移量
+                let targetX = 0;
+                let targetY = 0;
+
+                switch(dir) {
+                    case 'left': targetX = -bgWidth; break;
+                    case 'right': targetX = bgWidth; break;
+                    case 'up': targetY = -bgHeight; break;
+                    case 'down': targetY = bgHeight; break;
+                    case 'diagonal-tl-br': targetX = bgWidth; targetY = bgHeight; break;
+                    case 'diagonal-br-tl': targetX = -bgWidth; targetY = -bgHeight; break;
+                }
+
+                // 注入动态 Keyframes
+                const keyframes = `
+                    @keyframes mapFlowAnim {
+                        0% { background-position: 0px 0px; }
+                        100% { background-position: ${targetX}px ${targetY}px; }
+                    }
+                `;
+                let styleEl = document.getElementById('dynamic-styles');
+                if (!styleEl) {
+                    styleEl = document.createElement('style');
+                    styleEl.id = 'dynamic-styles';
+                    document.head.appendChild(styleEl);
+                }
+                styleEl.innerHTML = keyframes;
+
+                // 应用样式到容器
+                flowingBg.style.backgroundImage = `url('${imgUrl}')`;
+                flowingBg.style.backgroundRepeat = 'repeat';
+                flowingBg.style.backgroundSize = `${bgWidth}px ${bgHeight}px`;
+                flowingBg.style.animation = `mapFlowAnim ${speed}s linear infinite`;
+
+                // 生成最终需要用户拷贝的代码
+                codeOutput.value = 
+`/* 1. 将以下 CSS 放入您的 <style> 标签或 CSS 文件中 */
+.map-flowing-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999; /* 保持在底层，不阻挡手势交互 */
+  background-image: url('${imgUrl}');
+  background-repeat: repeat;
+  background-size: ${bgWidth}px ${bgHeight}px;
+  animation: mapFlowAnim ${speed}s linear infinite;
+  opacity: 0.8; /* 可调整透明度 */
+}
+
+@keyframes mapFlowAnim {
+  0% { background-position: 0px 0px; }
+  100% { background-position: ${targetX}px ${targetY}px; }
+}
+
+<!-- 2. 将此 DIV 添加到您 index.html 的 <body> 内最顶部 -->
+<div class="map-flowing-bg"></div>`;
+            }
+
+            // 监听控制面板的变化
+            [scaleInput, speedInput, dirInput].forEach(el => {
+                el.addEventListener('input', updateAnimation);
+            });
+            
+            // 监听图片 URL 变化并重新加载以获取宽高
+            imgUrlInput.addEventListener('input', (e) => {
+                loadImage(e.target.value);
+            });
+
+            // 自定义消息提示 (不使用 alert)
+            function showToast(msg) {
+                const toast = document.getElementById('toast');
+                toast.textContent = msg;
+                toast.style.opacity = '1';
+                toast.style.transform = 'translate(-50%, 0)';
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translate(-50%, -20px)';
+                }, 2500);
+            }
+
+            // 复制代码逻辑
+            copyBtn.addEventListener('click', () => {
+                const textArea = document.createElement("textarea");
+                textArea.value = codeOutput.value;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('集成代码已复制到剪贴板！');
+                } catch (err) {
+                    showToast('复制失败，请手动框选复制。');
+                }
+                document.body.removeChild(textArea);
+            });
+
+            // 初始化加载
+            loadImage(imgUrlInput.value);
+        });
+    </script>
+</body>
+</html>
