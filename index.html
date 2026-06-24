@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>明代浙江舆图手势交互</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #efe2bd;
+      --ink: #22180f;
+      --gold: #f6d37c;
+      --gold-soft: rgba(255, 224, 142, 0.72);
+      --red: #8c1414;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(184, 139, 78, 0.28), transparent 44%),
+        linear-gradient(120deg, #14100b 0%, #070605 55%, #1c120a 100%);
+      font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+    }
+
+    #stage {
+      position: fixed;
+      inset: 0;
+    }
+
+    #threeCanvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background:
+        repeating-radial-gradient(circle at 30% 20%, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px),
+        linear-gradient(90deg, rgba(255,255,255,0.05), transparent 22%, rgba(255,255,255,0.035) 51%, transparent 70%);
+      mix-blend-mode: soft-light;
+      opacity: 0.68;
+    }
+
+    .hud {
+      position: fixed;
+      left: 28px;
+      top: 24px;
+      z-index: 5;
+      width: min(480px, calc(100vw - 56px));
+      color: rgba(255, 247, 224, 0.92);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.72);
+      transition: opacity 300ms ease;
+    }
+
+    .title {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 40em;
+      color: rgba(255, 241, 205, 0.78);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .status-card {
+      position: fixed;
+      left: 28px;
+      bottom: 28px;
+      z-index: 6;
+      width: min(420px, calc(100vw - 56px));
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 226, 159, 0.26);
+      border-radius: 8px;
+      background: rgba(18, 12, 7, 0.58);
+      color: rgba(255, 243, 214, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .progress-track {
+      position: relative;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    #holdProgress {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(255, 230, 160, 0.96), rgba(140, 20, 20, 0.94));
+      transition: width 80ms linear;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    button {
+      border: 1px solid rgba(255, 226, 159, 0.32);
+      border-radius: 7px;
+      padding: 8px 11px;
+      background: rgba(255, 236, 190, 0.11);
+      color: rgba(255, 244, 220, 0.95);
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgba(255, 236, 190, 0.18);
+    }
+
+    .preview {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 8;
+      width: min(310px, 32vw);
+      min-width: 220px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 1px solid rgba(255, 226, 159, 0.34);
+      border-radius: 8px;
+      background: rgba(7, 6, 5, 0.82);
+      box-shadow: 0 18px 56px rgba(0, 0, 0, 0.46);
+    }
+
+    #previewCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .preview-label {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: rgba(255, 242, 210, 0.88);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 6px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #ffce73;
+      box-shadow: 0 0 12px #ffce73;
+    }
+
+    .site-card {
+      position: fixed;
+      z-index: 7;
+      min-width: 168px;
+      max-width: 230px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 230, 166, 0.35);
+      border-radius: 8px;
+      background: rgba(20, 12, 6, 0.68);
+      color: rgba(255, 242, 213, 0.96);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, calc(-100% - 18px));
+      transition: opacity 140ms ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+    }
+
+    .site-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffe1a0;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .site-card span {
+      display: block;
+      color: rgba(255, 235, 195, 0.78);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .locked {
+      position: fixed;
+      inset: 0;
+      z-index: 4;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(255, 220, 142, 0.12), transparent 34%),
+        rgba(0, 0, 0, 0.24);
+      pointer-events: none;
+      transition: opacity 360ms ease;
+    }
+
+    .locked-inner {
+      width: min(520px, calc(100vw - 48px));
+      padding: 24px 26px;
+      border: 1px solid rgba(255, 228, 166, 0.26);
+      border-radius: 8px;
+      background: rgba(22, 14, 8, 0.58);
+      color: rgba(255, 242, 212, 0.94);
+      text-align: center;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    .locked-inner h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .locked-inner p {
+      margin: 0;
+      color: rgba(255, 238, 206, 0.76);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .is-active .locked {
+      opacity: 0;
+    }
+
+    .is-active .hud {
+      opacity: 0.46;
+    }
+
+    .is-active .hud:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 720px) {
+      .hud {
+        left: 16px;
+        top: 16px;
+      }
+
+      .status-card {
+        left: 16px;
+        right: 16px;
+        bottom: 154px;
+        width: auto;
+      }
+
+      .preview {
+        right: 16px;
+        bottom: 16px;
+        width: 190px;
+        min-width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="stage">
+    <canvas id="threeCanvas"></canvas>
+    <div class="grain"></div>
+
+    <section class="hud" aria-label="项目标题">
+      <h1 class="title">明代浙江舆图</h1>
+      <p class="subtitle">以掌心为放大镜，靠近图面时照亮并放大对应海防卫所。开场请在摄像头前握拳保持 2 秒进入。</p>
+    </section>
+
+    <section class="status-card" aria-label="交互状态">
+      <div class="status-row">
+        <span id="statusText">正在加载 MediaPipe 手势模型...</span>
+        <span id="sourceText">示例视频</span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="holdProgress"></div></div>
+      <div class="controls">
+        <button id="cameraBtn" type="button">启用摄像头</button>
+        <button id="demoBtn" type="button">使用示例视频</button>
+        <button id="resetBtn" type="button">重新锁定</button>
+      </div>
+    </section>
+
+    <section class="preview" aria-label="隐私处理手势预览">
+      <canvas id="previewCanvas" width="480" height="360"></canvas>
+      <div class="preview-label"><span><i class="dot"></i> Gaussian blur + hand skeleton</span><span id="gestureText">--</span></div>
+    </section>
+
+    <aside id="siteCard" class="site-card" aria-live="polite">
+      <strong id="siteName"></strong>
+      <span id="siteMeta"></span>
+    </aside>
+
+    <div class="locked">
+      <div class="locked-inner">
+        <h2>握拳 2 秒开启舆图</h2>
+        <p>进入后张开手掌移动，掌心会形成正圆形光圈，局部放大并照亮图上的卫所。</p>
+      </div>
+    </div>
+
+    <video id="inputVideo" playsinline muted loop preload="auto" crossorigin="anonymous">
+      <source src="./assets/vedio.mp4" type="video/mp4" />
+    </video>
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+        "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.35/vision_bundle.mjs"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from "three";
+    import { FilesetResolver, HandLandmarker } from "@mediapipe/tasks-vision";
+
+    const MAP_SRC = "./assets/ming-zhejiang-map.jpg";
+    const MAP_SIZE = { width: 1600, height: 1220 };
+    const HOLD_TO_ENTER_MS = 2000;
+
+    const STRONGHOLDS = [
+      { name: "观海卫", x: 748, y: 598, meta: "宁波府沿海卫所，后续可替换为精校坐标与说明。" },
+      { name: "昌国卫", x: 1032, y: 534, meta: "舟山海防体系重要节点。" },
+      { name: "定海卫", x: 1172, y: 456, meta: "近海岛屿防御与港口通道节点。" },
+      { name: "临山卫", x: 602, y: 368, meta: "杭州湾南岸防御节点。" },
+      { name: "海门卫", x: 1088, y: 708, meta: "台州沿海要冲。" },
+      { name: "松门卫", x: 986, y: 782, meta: "浙东南沿海防御节点。" },
+      { name: "温州卫", x: 1048, y: 910, meta: "温州府城防与海防复合节点。" },
+      { name: "金乡卫", x: 1158, y: 975, meta: "浙南沿海卫城节点。" },
+      { name: "盘石卫", x: 978, y: 1030, meta: "浙南山海交界防御节点。" },
+      { name: "宁波府", x: 838, y: 520, meta: "府城与卫所网络的区域中心。" }
+    ].map((site) => ({
+      ...site,
+      u: site.x / MAP_SIZE.width,
+      v: 1 - site.y / MAP_SIZE.height
+    }));
+
+    const HAND_CONNECTIONS = [
+      [0,1], [1,2], [2,3], [3,4],
+      [0,5], [5,6], [6,7], [7,8],
+      [5,9], [9,10], [10,11], [11,12],
+      [9,13], [13,14], [14,15], [15,16],
+      [13,17], [17,18], [18,19], [19,20],
+      [0,17]
+    ];
+
+    const stage = document.querySelector("#stage");
+    const canvas = document.querySelector("#threeCanvas");
+    const inputVideo = document.querySelector("#inputVideo");
+    const previewCanvas = document.querySelector("#previewCanvas");
+    const previewCtx = previewCanvas.getContext("2d", { alpha: false });
+    const statusText = document.querySelector("#statusText");
+    const sourceText = document.querySelector("#sourceText");
+    const gestureText = document.querySelector("#gestureText");
+    const holdProgress = document.querySelector("#holdProgress");
+    const siteCard = document.querySelector("#siteCard");
+    const siteName = document.querySelector("#siteName");
+    const siteMeta = document.querySelector("#siteMeta");
+
+    const state = {
+      active: false,
+      handLandmarker: null,
+      lastVideoTime: -1,
+      holdStartedAt: 0,
+      lastLandmarks: null,
+      gesture: "none",
+      source: "demo",
+      targetUv: new THREE.Vector2(0.52, 0.52),
+      smoothUv: new THREE.Vector2(0.52, 0.52),
+      lensVisible: 0,
+      lensRadiusWorld: 0.22,
+      plane: { width: 2, height: 1.5 },
+      view: { width: 2, height: 2 }
+    };
+
+    let renderer;
+    let scene;
+    let camera;
+    let mapPlane;
+    let lensPlane;
+    let lensRing;
+    let markerGroup;
+    let mapTexture;
+
+    initThree();
+    initMediaPipe();
+    bindControls();
+
+    function initThree() {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance"
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+
+      scene = new THREE.Scene();
+      camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 20);
+      camera.position.set(0, 0, 5);
+
+      const ambient = new THREE.AmbientLight(0xffead0, 1.18);
+      scene.add(ambient);
+
+      const textureLoader = new THREE.TextureLoader();
+      mapTexture = textureLoader.load(MAP_SRC, () => {
+        mapTexture.colorSpace = THREE.SRGBColorSpace;
+        mapTexture.needsUpdate = true;
+        resize();
+      });
+
+      const paperMaterial = new THREE.MeshBasicMaterial({
+        map: mapTexture,
+        color: 0xf3e3bf
+      });
+      mapPlane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 96, 72), paperMaterial);
+      scene.add(mapPlane);
+
+      const lensMaterial = new THREE.ShaderMaterial({
+        transparent: true,
+        depthWrite: false,
+        uniforms: {
+          mapTex: { value: mapTexture },
+          centerUv: { value: state.smoothUv },
+          radiusUv: { value: new THREE.Vector2(0.1, 0.1) },
+          magnify: { value: 2.35 },
+          alpha: { value: 0 },
+          warm: { value: new THREE.Color(0xffe3a3) }
+        },
+        vertexShader: `
+          varying vec2 vUv;
+          void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          precision highp float;
+          uniform sampler2D mapTex;
+          uniform vec2 centerUv;
+          uniform vec2 radiusUv;
+          uniform float magnify;
+          uniform float alpha;
+          uniform vec3 warm;
+          varying vec2 vUv;
+
+          void main() {
+            vec2 p = (vUv - 0.5) * 2.0;
+            float dist = length(p);
+            if (dist > 1.0) discard;
+
+            vec2 sampleUv = centerUv + vec2(p.x * radiusUv.x, p.y * radiusUv.y) / magnify;
+            vec4 texel = texture2D(mapTex, clamp(sampleUv, 0.0, 1.0));
+            float feather = smoothstep(1.0, 0.78, dist);
+            float glow = smoothstep(1.0, 0.18, dist);
+            vec3 lit = texel.rgb * (1.22 + glow * 0.42) + warm * (0.13 + glow * 0.18);
+            gl_FragColor = vec4(lit, alpha * feather);
+          }
+        `
+      });
+      lensPlane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), lensMaterial);
+      lensPlane.position.z = 0.045;
+      scene.add(lensPlane);
+
+      lensRing = new THREE.Mesh(
+        new THREE.RingGeometry(0.488, 0.5, 96),
+        new THREE.MeshBasicMaterial({
+          color: 0xffdda0,
+          transparent: true,
+          opacity: 0,
+          depthWrite: false,
+          blending: THREE.AdditiveBlending
+        })
+      );
+      lensRing.position.z = 0.062;
+      scene.add(lensRing);
+
+      markerGroup = new THREE.Group();
+      scene.add(markerGroup);
+      createSiteMarkers();
+
+      window.addEventListener("resize", resize);
+      resize();
+      animate();
+    }
+
+    function createSiteMarkers() {
+      const markerMaterial = new THREE.MeshBasicMaterial({
+        color: 0x8c1414,
+        transparent: true,
+        opacity: 0.84,
+        depthWrite: false
+      });
+      STRONGHOLDS.forEach((site) => {
+        const marker = new THREE.Mesh(new THREE.CircleGeometry(0.012, 28), markerMaterial.clone());
+        marker.userData.site = site;
+        marker.position.z = 0.07;
+        markerGroup.add(marker);
+      });
+    }
+
+    async function initMediaPipe() {
+      try {
+        const vision = await FilesetResolver.forVisionTasks(
+          "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.35/wasm"
+        );
+
+        state.handLandmarker = await HandLandmarker.createFromOptions(vision, {
+          baseOptions: {
+            modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
+            delegate: "GPU"
+          },
+          runningMode: "VIDEO",
+          numHands: 1,
+          minHandDetectionConfidence: 0.55,
+          minHandPresenceConfidence: 0.55,
+          minTrackingConfidence: 0.5
+        });
+
+        statusText.textContent = "模型已加载：握拳 2 秒进入";
+        await useDemoVideo();
+        requestAnimationFrame(detectLoop);
+      } catch (error) {
+        console.error(error);
+        statusText.textContent = "模型加载失败，请检查网络/CDN，或使用本地部署模型。";
+      }
+    }
+
+    function bindControls() {
+      document.querySelector("#cameraBtn").addEventListener("click", useCamera);
+      document.querySelector("#demoBtn").addEventListener("click", useDemoVideo);
+      document.querySelector("#resetBtn").addEventListener("click", () => {
+        state.active = false;
+        state.holdStartedAt = 0;
+        state.lensVisible = 0;
+        stage.classList.remove("is-active");
+        statusText.textContent = "已重新锁定：握拳 2 秒进入";
+      });
+
+      window.addEventListener("pointermove", (event) => {
+        if (state.lastLandmarks || !state.active) return;
+        const rect = canvas.getBoundingClientRect();
+        const sx = (event.clientX - rect.left) / rect.width;
+        const sy = (event.clientY - rect.top) / rect.height;
+        state.targetUv.copy(screenToUv(sx, sy));
+        state.lensVisible = 0.9;
+      });
+    }
+
+    async function useDemoVideo() {
+      stopCameraTracks();
+      inputVideo.src = "./assets/vedio.mp4";
+      inputVideo.loop = true;
+      inputVideo.muted = true;
+      inputVideo.playsInline = true;
+      await inputVideo.play().catch(() => {});
+      state.source = "demo";
+      sourceText.textContent = "示例视频";
+      statusText.textContent = state.active ? "示例视频输入中" : "示例视频输入中：握拳 2 秒进入";
+    }
+
+    async function useCamera() {
+      try {
+        stopCameraTracks();
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
+            facingMode: "user"
+          },
+          audio: false
+        });
+        inputVideo.srcObject = stream;
+        inputVideo.loop = false;
+        await inputVideo.play();
+        state.source = "camera";
+        sourceText.textContent = "摄像头";
+        statusText.textContent = state.active ? "摄像头输入中" : "摄像头输入中：握拳 2 秒进入";
+      } catch (error) {
+        console.error(error);
+        statusText.textContent = "无法启用摄像头：请允许浏览器权限，或继续使用示例视频。";
+      }
+    }
+
+    function stopCameraTracks() {
+      const stream = inputVideo.srcObject;
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+        inputVideo.srcObject = null;
+      }
+    }
+
+    function detectLoop() {
+      if (state.handLandmarker && inputVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        if (inputVideo.currentTime !== state.lastVideoTime) {
+          state.lastVideoTime = inputVideo.currentTime;
+          const now = performance.now();
+          const results = state.handLandmarker.detectForVideo(inputVideo, now);
+          updateGesture(results, now);
+          drawPreview(results);
+        }
+      } else {
+        drawPreview(null);
+      }
+      requestAnimationFrame(detectLoop);
+    }
+
+    function updateGesture(results, now) {
+      const landmarks = results?.landmarks?.[0] || null;
+      state.lastLandmarks = landmarks;
+
+      if (!landmarks) {
+        state.gesture = "none";
+        gestureText.textContent = "--";
+        state.holdStartedAt = 0;
+        holdProgress.style.width = "0%";
+        if (!state.active) statusText.textContent = "未检测到手：请把手放入右下角预览范围";
+        state.lensVisible = Math.max(0, state.lensVisible - 0.035);
+        return;
+      }
+
+      const fist = isFist(landmarks);
+      state.gesture = fist ? "fist" : "palm";
+      gestureText.textContent = fist ? "FIST" : "PALM";
+
+      const palm = palmCenter(landmarks);
+      const sx = 1 - palm.x;
+      const sy = palm.y;
+      state.targetUv.copy(screenToUv(sx, sy));
+
+      if (!state.active) {
+        if (fist) {
+          if (!state.holdStartedAt) state.holdStartedAt = now;
+          const progress = Math.min(1, (now - state.holdStartedAt) / HOLD_TO_ENTER_MS);
+          holdProgress.style.width = `${progress * 100}%`;
+          statusText.textContent = `保持握拳进入：${Math.ceil((1 - progress) * 2)}s`;
+          if (progress >= 1) unlockExperience();
+        } else {
+          state.holdStartedAt = 0;
+          holdProgress.style.width = "0%";
+          statusText.textContent = "请握拳 2 秒进入";
+        }
+        state.lensVisible = 0.12;
+        return;
+      }
+
+      holdProgress.style.width = "100%";
+      state.lensVisible = fist ? 0.35 : 1;
+      statusText.textContent = fist ? "握拳暂停放大，张开手掌继续探索" : "掌心光圈正在探索舆图";
+    }
+
+    function unlockExperience() {
+      state.active = true;
+      stage.classList.add("is-active");
+      statusText.textContent = "已进入：张开手掌移动掌心光圈";
+      holdProgress.style.width = "100%";
+    }
+
+    function isFist(lm) {
+      const wrist = lm[0];
+      const middleMcp = lm[9];
+      const palmScale = distance2D(wrist, middleMcp) || 0.1;
+
+      const folded = [
+        [8, 6],
+        [12, 10],
+        [16, 14],
+        [20, 18]
+      ].reduce((count, [tip, pip]) => {
+        const tipToWrist = distance2D(lm[tip], wrist);
+        const pipToWrist = distance2D(lm[pip], wrist);
+        return count + (tipToWrist < pipToWrist * 1.12 ? 1 : 0);
+      }, 0);
+
+      const palm = palmCenter(lm);
+      const thumbTucked = distance2D(lm[4], palm) < palmScale * 1.18;
+      return folded >= 3 && thumbTucked;
+    }
+
+    function palmCenter(lm) {
+      const ids = [0, 5, 9, 13, 17];
+      const center = ids.reduce((acc, id) => {
+        acc.x += lm[id].x;
+        acc.y += lm[id].y;
+        acc.z += lm[id].z || 0;
+        return acc;
+      }, { x: 0, y: 0, z: 0 });
+      return {
+        x: center.x / ids.length,
+        y: center.y / ids.length,
+        z: center.z / ids.length
+      };
+    }
+
+    function distance2D(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function drawPreview(results) {
+      const w = previewCanvas.width;
+      const h = previewCanvas.height;
+      previewCtx.save();
+      previewCtx.fillStyle = "#0a0806";
+      previewCtx.fillRect(0, 0, w, h);
+
+      if (inputVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        previewCtx.translate(w, 0);
+        previewCtx.scale(-1, 1);
+        previewCtx.filter = "blur(12px) saturate(0.75) brightness(0.78)";
+        previewCtx.drawImage(inputVideo, 0, 0, w, h);
+        previewCtx.filter = "none";
+        previewCtx.setTransform(1, 0, 0, 1, 0, 0);
+        previewCtx.fillStyle = "rgba(6, 5, 4, 0.18)";
+        previewCtx.fillRect(0, 0, w, h);
+      }
+
+      const landmarks = results?.landmarks?.[0];
+      if (landmarks) {
+        previewCtx.lineCap = "round";
+        previewCtx.lineJoin = "round";
+        previewCtx.lineWidth = 4;
+        previewCtx.strokeStyle = "rgba(255, 219, 138, 0.96)";
+        HAND_CONNECTIONS.forEach(([a, b]) => {
+          const pa = landmarks[a];
+          const pb = landmarks[b];
+          previewCtx.beginPath();
+          previewCtx.moveTo((1 - pa.x) * w, pa.y * h);
+          previewCtx.lineTo((1 - pb.x) * w, pb.y * h);
+          previewCtx.stroke();
+        });
+
+        previewCtx.fillStyle = "rgba(140, 20, 20, 0.96)";
+        landmarks.forEach((p, index) => {
+          const radius = index === 0 ? 5 : 3.2;
+          previewCtx.beginPath();
+          previewCtx.arc((1 - p.x) * w, p.y * h, radius, 0, Math.PI * 2);
+          previewCtx.fill();
+        });
+      }
+      previewCtx.restore();
+    }
+
+    function screenToUv(screenX, screenY) {
+      const worldX = -state.view.width / 2 + screenX * state.view.width;
+      const worldY = state.view.height / 2 - screenY * state.view.height;
+      const left = -state.plane.width / 2;
+      const bottom = -state.plane.height / 2;
+      const u = THREE.MathUtils.clamp((worldX - left) / state.plane.width, 0, 1);
+      const v = THREE.MathUtils.clamp((worldY - bottom) / state.plane.height, 0, 1);
+      return new THREE.Vector2(u, v);
+    }
+
+    function uvToWorld(u, v) {
+      return new THREE.Vector3(
+        (u - 0.5) * state.plane.width,
+        (v - 0.5) * state.plane.height,
+        0
+      );
+    }
+
+    function worldToScreen(world) {
+      const projected = world.clone().project(camera);
+      return {
+        x: (projected.x * 0.5 + 0.5) * window.innerWidth,
+        y: (-projected.y * 0.5 + 0.5) * window.innerHeight
+      };
+    }
+
+    function findNearestSite(uv) {
+      const radiusU = state.lensRadiusWorld / state.plane.width;
+      const radiusV = state.lensRadiusWorld / state.plane.height;
+      let best = null;
+      let bestDistance = Infinity;
+      STRONGHOLDS.forEach((site) => {
+        const d = Math.hypot((site.u - uv.x) / radiusU, (site.v - uv.y) / radiusV);
+        if (d < bestDistance) {
+          best = site;
+          bestDistance = d;
+        }
+      });
+      return bestDistance < 1.1 ? best : null;
+    }
+
+    function resize() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      renderer.setSize(width, height, false);
+
+      const viewportAspect = width / height;
+      const mapAspect = MAP_SIZE.width / MAP_SIZE.height;
+      const viewHeight = 2;
+      const viewWidth = viewHeight * viewportAspect;
+      state.view.width = viewWidth;
+      state.view.height = viewHeight;
+
+      camera.left = -viewWidth / 2;
+      camera.right = viewWidth / 2;
+      camera.top = viewHeight / 2;
+      camera.bottom = -viewHeight / 2;
+      camera.updateProjectionMatrix();
+
+      if (viewportAspect > mapAspect) {
+        state.plane.height = viewHeight * 0.86;
+        state.plane.width = state.plane.height * mapAspect;
+      } else {
+        state.plane.width = viewWidth * 0.88;
+        state.plane.height = state.plane.width / mapAspect;
+      }
+
+      mapPlane.scale.set(state.plane.width, state.plane.height, 1);
+      state.lensRadiusWorld = Math.min(state.plane.width, state.plane.height) * 0.155;
+
+      markerGroup.children.forEach((marker) => {
+        const site = marker.userData.site;
+        marker.position.copy(uvToWorld(site.u, site.v));
+        marker.scale.setScalar(Math.min(state.plane.width, state.plane.height));
+      });
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      state.smoothUv.lerp(state.targetUv, 0.18);
+      const lensWorld = uvToWorld(state.smoothUv.x, state.smoothUv.y);
+      lensPlane.position.x = lensWorld.x;
+      lensPlane.position.y = lensWorld.y;
+      lensPlane.scale.setScalar(state.lensRadiusWorld * 2);
+      lensRing.position.x = lensWorld.x;
+      lensRing.position.y = lensWorld.y;
+      lensRing.scale.setScalar(state.lensRadiusWorld * 2);
+
+      const alpha = state.active ? state.lensVisible : Math.min(state.lensVisible, 0.18);
+      lensPlane.material.uniforms.centerUv.value.copy(state.smoothUv);
+      lensPlane.material.uniforms.radiusUv.value.set(
+        state.lensRadiusWorld / state.plane.width,
+        state.lensRadiusWorld / state.plane.height
+      );
+      lensPlane.material.uniforms.alpha.value = alpha;
+      lensRing.material.opacity = alpha * 0.85;
+
+      mapPlane.material.color.setScalar(state.active ? 1 : 0.68);
+      markerGroup.children.forEach((marker) => {
+        const site = marker.userData.site;
+        const d = Math.hypot(site.u - state.smoothUv.x, site.v - state.smoothUv.y);
+        marker.material.opacity = state.active ? THREE.MathUtils.clamp(0.26 - d * 2.2, 0.08, 0.92) : 0.18;
+      });
+
+      updateSiteCard(lensWorld, alpha);
+      renderer.render(scene, camera);
+    }
+
+    function updateSiteCard(lensWorld, alpha) {
+      const site = state.active && alpha > 0.4 ? findNearestSite(state.smoothUv) : null;
+      if (!site) {
+        siteCard.style.opacity = 0;
+        return;
+      }
+
+      const screen = worldToScreen(lensWorld);
+      siteCard.style.left = `${screen.x}px`;
+      siteCard.style.top = `${screen.y}px`;
+      siteCard.style.opacity = 1;
+      siteName.textContent = site.name;
+      siteMeta.textContent = site.meta;
+    }
+  </script>
+</body>
+</html>
