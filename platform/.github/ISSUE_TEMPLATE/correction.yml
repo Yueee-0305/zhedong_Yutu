@@ -1,0 +1,17 @@
+name: 遗产资料纠错
+description: 提供稳定遗产 ID、问题与证据
+body:
+  - type: input
+    id: heritage-id
+    attributes:
+      label: 遗产 ID
+      placeholder: ZJCD-NB-003
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 需要修正的内容与依据
+      description: 请给出书名、版本、卷页或可核验的来源，并区分事实与解释。
+    validations:
+      required: true

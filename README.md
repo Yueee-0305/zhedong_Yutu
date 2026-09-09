@@ -1,3 +1,13 @@
+## 新增：浙东海防遗产数字图志
+
+- [打开数字图志](https://yueee-0305.github.io/zhedong_Yutu/atlas/)
+- [开发与数据维护说明](platform/README.md)
+- [下载后可直接打开的离线版](atlas/offline.html)
+
+新平台独立位于 `atlas/`，源代码位于 `platform/`；下方原浙江舆图手势交互保持不变。
+
+---
+
 # 明代浙江舆图手势交互
 
 这是一个基于 Three.js、MediaPipe Tasks Vision HandLandmarker 和 JavaScript 的本地交互界面。
