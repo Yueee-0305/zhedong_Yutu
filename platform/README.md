@@ -1,4 +1,7 @@
-> 公开版仅包含基础元数据。在线访问 ../atlas/；离线打开 ../atlas/offline.html。研究原文未公开。
+> 当前仓库为公开元数据版，研究原文未公开。
+> [打开数字图志](https://yueee-0305.github.io/zhedong_Yutu/atlas/) · [在线离线页](https://yueee-0305.github.io/zhedong_Yutu/atlas/offline.html)
+> 下载并解压整个仓库后，双击 `atlas/offline.html`；若仅下载 platform 源码，先运行 `npm run build`，再打开生成的 `dist/offline.html`。
+> 公开版检索返回基础字段；真实模型问答需要另外配置后端与经审核的资料。在线底图需要联网，离线版仍可查看点位与档案。
 
 # 浙东海防遗产数字图志
 
