@@ -1,0 +1,1776 @@
+{
+  "type": "FeatureCollection",
+  "name": "明代浙江沿海海防历史设施—已定位与候选点位",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.525676,
+          28.387747
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0002",
+        "name": "松门卫",
+        "type": "卫",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "松门卫南城门",
+        "siteId": "ZJ-TZ-WL-0003",
+        "modernAddress": "松门镇南大街",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0003",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.446504,
+          28.679834
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0003",
+        "name": "海门卫",
+        "type": "卫",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "海门卫城址",
+        "siteId": "ZJ-TZ-JJ-0001",
+        "modernAddress": "海门街道东门岭",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0009",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.410715,
+          30.172797
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0009",
+        "name": "观海卫",
+        "type": "卫",
+        "pref": "宁波府",
+        "guard": "观海卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 宁波府 > 观海卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "观海卫城",
+        "siteId": "ZJ-NB-CX-0002",
+        "modernAddress": "观海卫镇",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府临观段〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；民政属宁波慈溪县，临观防区见绍兴篇",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0013",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.823121,
+          27.9903
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0013",
+        "name": "磐石卫",
+        "type": "卫",
+        "pref": "温州府",
+        "guard": "磐石卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 温州府 > 磐石卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "磐石卫城址",
+        "siteId": "ZJ-WZ-YQ-0001",
+        "modernAddress": "盘石镇西门村",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0014",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.610684,
+          27.431615
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0014",
+        "name": "金乡卫",
+        "type": "卫",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "金乡卫城址",
+        "siteId": "ZJ-WZ-CN-0001",
+        "modernAddress": "金乡镇",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0015",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.997461,
+          30.154063
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0015",
+        "name": "临山卫",
+        "type": "卫",
+        "pref": "绍兴府",
+        "guard": "临山卫",
+        "subguard": "",
+        "parent": "浙江都指挥使司",
+        "path": "浙江都指挥使司 > 绍兴府 > 临山卫",
+        "group": "沿海卫",
+        "status": "confirmed",
+        "modern": "临山卫城址",
+        "siteId": "ZJ-NB-YY-0001",
+        "modernAddress": "临山镇",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0018",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.388064,
+          28.232225
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0018",
+        "name": "小鹿",
+        "type": "巡检司",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "隘顽所",
+        "parent": "隘顽所",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 隘顽所 > 小鹿",
+        "group": "",
+        "status": "confirmed",
+        "modern": "泗边小鹿巡检司城遗址",
+        "siteId": "ZJ-TZ-YH-0002",
+        "modernAddress": "沙门镇泗边村",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0020",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.550366,
+          28.415716
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0020",
+        "name": "盘马",
+        "type": "巡检司",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "",
+        "parent": "松门卫",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 盘马",
+        "group": "",
+        "status": "candidate",
+        "modern": "盘马山烽火墩",
+        "siteId": "ZJ-TZ-WL-0005",
+        "modernAddress": "箬横镇盘马村盘马山顶",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0021",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.435185,
+          29.137384
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0021",
+        "name": "曼岙",
+        "type": "巡检司",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "健跳所",
+        "parent": "健跳所",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 健跳所 > 曼岙",
+        "group": "",
+        "status": "confirmed",
+        "modern": "曼岙巡检司城址",
+        "siteId": "ZJ-TZ-SM-0001",
+        "modernAddress": "海游镇大周村",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0027",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.429797,
+          28.572373
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0027",
+        "name": "长浦",
+        "type": "巡检司",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "",
+        "parent": "海门卫",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 长浦",
+        "group": "",
+        "status": "confirmed",
+        "modern": "长浦司城址",
+        "siteId": "ZJ-TZ-LQ-0001",
+        "modernAddress": "路南街道司城村长浦司城里",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0028",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.087009,
+          30.60042
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0028",
+        "name": "乍浦",
+        "type": "巡检司",
+        "pref": "嘉兴府",
+        "guard": "海宁卫",
+        "subguard": "乍浦所",
+        "parent": "乍浦所",
+        "path": "浙江都指挥使司 > 嘉兴府 > 海宁卫 > 乍浦所 > 乍浦",
+        "group": "",
+        "status": "candidate",
+        "modern": "乍浦故城",
+        "siteId": "ZJ-JX-PH-0001",
+        "modernAddress": "乍浦镇内",
+        "source": "《浙江通志》卷九十七〈海防三·嘉兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0030",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.889958,
+          30.388643
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0030",
+        "name": "澉浦",
+        "type": "巡检司",
+        "pref": "嘉兴府",
+        "guard": "海宁卫",
+        "subguard": "澉浦所",
+        "parent": "澉浦所",
+        "path": "浙江都指挥使司 > 嘉兴府 > 海宁卫 > 澉浦所 > 澉浦",
+        "group": "",
+        "status": "candidate",
+        "modern": "澉浦所城址",
+        "siteId": "ZJ-JX-HY-0002",
+        "modernAddress": "澉浦镇西",
+        "source": "《浙江通志》卷九十七〈海防三·嘉兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "原始配对标为候选，未证实与历史设施同址。 现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0032",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.742631,
+          29.608877
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0032",
+        "name": "塔山",
+        "type": "巡检司",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "大嵩所",
+        "parent": "大嵩所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 大嵩所 > 塔山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "塔山城址（塔山巡检司城）",
+        "siteId": "ZJ-NB-FH-0003",
+        "modernAddress": "松岙镇湖头渡村西首",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0033",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.953484,
+          29.824709
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0033",
+        "name": "太平",
+        "type": "巡检司",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "霩衢所",
+        "parent": "霩衢所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 霩衢所 > 太平",
+        "group": "",
+        "status": "confirmed",
+        "modern": "太平岙巡检司城遗址",
+        "siteId": "ZJ-NB-BL-0007",
+        "modernAddress": "北仑区白峰镇太平村太平岙岙口",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0038",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.933981,
+          29.887879
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0038",
+        "name": "穿山",
+        "type": "巡检司",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "穿山后所",
+        "parent": "穿山后所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 穿山后所 > 穿山",
+        "group": "",
+        "status": "candidate",
+        "modern": "穿山烽火台",
+        "siteId": "ZJ-NB-BL-0019",
+        "modernAddress": "柴桥街道穿山村海拔约100米的山顶",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0043",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.951114,
+          29.473015
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0043",
+        "name": "爵溪",
+        "type": "巡检司",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "爵溪所",
+        "parent": "爵溪所",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 爵溪所 > 爵溪",
+        "group": "",
+        "status": "candidate",
+        "modern": "爵溪抗倭城墙",
+        "siteId": "ZJ-NB-XS-0009",
+        "modernAddress": "爵溪街道",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0044",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.94573,
+          29.20869
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0044",
+        "name": "石浦",
+        "type": "巡检司",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "石浦前所／石浦后所（合列）",
+        "parent": "石浦前所／石浦后所（合列）",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 石浦前所／石浦后所（合列） > 石浦",
+        "group": "",
+        "status": "confirmed",
+        "modern": "石浦巡检司旧址",
+        "siteId": "ZJ-NB-XS-0029",
+        "modernAddress": "石浦镇文兰社区巡司弄23号",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "合列仅为名录索引，并非新的卫所机构；所辖各基层设施未能拆分到单个所",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0050",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.417455,
+          30.279989
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0050",
+        "name": "赭山",
+        "type": "巡检司",
+        "pref": "杭州府",
+        "guard": "浙江都司",
+        "subguard": "海宁所",
+        "parent": "海宁所",
+        "path": "浙江都指挥使司 > 杭州府 > 浙江都司 > 海宁所 > 赭山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "萧山抗倭遗址（赭山巡检司城旧址）",
+        "siteId": "ZJ-HZ-XS-0001",
+        "modernAddress": "南阳镇龙虎村西",
+        "source": "《浙江通志》卷九十七〈海防三·杭州府〉；《明史》卷九十〈海宁千户所〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "直属都司守御千户所；原志分入杭州海防篇；本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；此处杭州海宁所非嘉兴海盐县海宁卫",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0055",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.052028,
+          28.169386
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0055",
+        "name": "蒲岐",
+        "type": "巡检司",
+        "pref": "温州府",
+        "guard": "磐石卫",
+        "subguard": "蒲岐所",
+        "parent": "蒲岐所",
+        "path": "浙江都指挥使司 > 温州府 > 磐石卫 > 蒲岐所 > 蒲岐",
+        "group": "",
+        "status": "candidate",
+        "modern": "蒲岐所城城门",
+        "siteId": "ZJ-WZ-YQ-0004",
+        "modernAddress": "蒲岐镇",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0058",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.565007,
+          27.401401
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0058",
+        "name": "龟峰",
+        "type": "巡检司",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "",
+        "parent": "金乡卫",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 龟峰",
+        "group": "",
+        "status": "candidate",
+        "modern": "龟峰堡",
+        "siteId": "ZJ-WZ-CN-0021",
+        "modernAddress": "大渔镇小渔岙村",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0059",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.24313,
+          30.173642
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0059",
+        "name": "三山",
+        "type": "巡检司",
+        "pref": "绍兴府",
+        "guard": "临山卫",
+        "subguard": "三山所",
+        "parent": "三山所",
+        "path": "浙江都指挥使司 > 绍兴府 > 临山卫 > 三山所 > 三山",
+        "group": "",
+        "status": "candidate",
+        "modern": "三山所城",
+        "siteId": "ZJ-NB-CX-0001",
+        "modernAddress": "浒山街道",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0063",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.616296,
+          30.113341
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0063",
+        "name": "三江",
+        "type": "巡检司",
+        "pref": "绍兴府",
+        "guard": "绍兴卫",
+        "subguard": "三江所",
+        "parent": "三江所",
+        "path": "浙江都指挥使司 > 绍兴府 > 绍兴卫 > 三江所 > 三江",
+        "group": "",
+        "status": "candidate",
+        "modern": "三江所城遗址",
+        "siteId": "ZJ-SX-YC-0001",
+        "modernAddress": "斗门镇三江村东首东门头",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称未明确指向巡检司，位置仅供进一步核查。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0065",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.28896,
+          28.228632
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0065",
+        "name": "楚门所",
+        "type": "所",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "楚门所",
+        "parent": "松门卫",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 楚门所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "楚门所城址",
+        "siteId": "ZJ-TZ-YH-0001",
+        "modernAddress": "楚门镇",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0067",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.631275,
+          29.041485
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0067",
+        "name": "健跳所",
+        "type": "所",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "健跳所",
+        "parent": "海门卫",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 健跳所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "健跳所城遗址",
+        "siteId": "ZJ-TZ-SM-0003",
+        "modernAddress": "健跳镇健农村双凤山",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0068",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.454067,
+          28.478817
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0068",
+        "name": "新河所",
+        "type": "所",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "新河所",
+        "parent": "海门卫",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 新河所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "新河所城址",
+        "siteId": "ZJ-TZ-WL-0001",
+        "modernAddress": "新河镇新河小学后面",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0069",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.539312,
+          28.825888
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0069",
+        "name": "桃渚所",
+        "type": "所",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "桃渚所",
+        "parent": "海门卫",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 桃渚所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "桃渚所城址",
+        "siteId": "ZJ-TZ-LH-0002",
+        "modernAddress": "浙江省台州市临海市桃渚镇",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0072",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.889958,
+          30.388643
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0072",
+        "name": "澉浦所",
+        "type": "所",
+        "pref": "嘉兴府",
+        "guard": "海宁卫",
+        "subguard": "澉浦所",
+        "parent": "海宁卫",
+        "path": "浙江都指挥使司 > 嘉兴府 > 海宁卫 > 澉浦所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "澉浦所城址",
+        "siteId": "ZJ-JX-HY-0002",
+        "modernAddress": "澉浦镇西",
+        "source": "《浙江通志》卷九十七〈海防三·嘉兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0073",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.787355,
+          29.707755
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0073",
+        "name": "大嵩所",
+        "type": "所",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "大嵩所",
+        "parent": "定海卫",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 大嵩所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "大嵩所城遗址",
+        "siteId": "ZJ-NB-YZ-0001",
+        "modernAddress": "瞻歧镇东城村与西城村",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0082",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.562285,
+          30.077398
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0082",
+        "name": "龙山所",
+        "type": "所",
+        "pref": "宁波府",
+        "guard": "观海卫",
+        "subguard": "龙山所",
+        "parent": "观海卫",
+        "path": "浙江都指挥使司 > 宁波府 > 观海卫 > 龙山所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "龙山所城",
+        "siteId": "ZJ-NB-CX-0003",
+        "modernAddress": "龙山镇龙山所村",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府临观段〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；民政属宁波慈溪县，临观防区见绍兴篇",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0085",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.735145,
+          27.828262
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0085",
+        "name": "海安所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "温州卫",
+        "subguard": "海安所",
+        "parent": "温州卫",
+        "path": "浙江都指挥使司 > 温州府 > 温州卫 > 海安所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "海安所城址",
+        "siteId": "ZJ-WZ-RA-0002",
+        "modernAddress": "塘下镇海安海东村",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0087",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.843947,
+          27.923734
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0087",
+        "name": "宁村所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "磐石卫",
+        "subguard": "宁村所",
+        "parent": "磐石卫",
+        "path": "浙江都指挥使司 > 温州府 > 磐石卫 > 宁村所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "宁村所城址",
+        "siteId": "ZJ-WZ-LW-0001",
+        "modernAddress": "海滨街道宁村村十字路头",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0088",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.979754,
+          28.121571
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0088",
+        "name": "磐石后所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "磐石卫",
+        "subguard": "磐石后所",
+        "parent": "磐石卫",
+        "path": "浙江都指挥使司 > 温州府 > 磐石卫 > 磐石后所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "磐石后所",
+        "siteId": "ZJ-WZ-YQ-0005",
+        "modernAddress": "城东街道后所社区",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0089",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.052028,
+          28.169386
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0089",
+        "name": "蒲岐所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "磐石卫",
+        "subguard": "蒲岐所",
+        "parent": "磐石卫",
+        "path": "浙江都指挥使司 > 温州府 > 磐石卫 > 蒲岐所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "蒲岐所城城门",
+        "siteId": "ZJ-WZ-YQ-0004",
+        "modernAddress": "蒲岐镇",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0090",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.51994,
+          27.271394
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0090",
+        "name": "壮士所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "壮士所",
+        "parent": "金乡卫",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 壮士所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "壮士所城",
+        "siteId": "ZJ-WZ-CN-0003-02",
+        "modernAddress": "苍南县渔寮乡雾城村",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0091",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.646391,
+          27.727257
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0091",
+        "name": "沙园所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "沙园所",
+        "parent": "金乡卫",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 沙园所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "沙园所",
+        "siteId": "ZJ-WZ-RA-0003",
+        "modernAddress": "飞云镇沙园村",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0092",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.446835,
+          27.235401
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0092",
+        "name": "蒲门所",
+        "type": "所",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "蒲门所",
+        "parent": "金乡卫",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 蒲门所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "蒲门所城",
+        "siteId": "ZJ-WZ-CN-0003-01",
+        "modernAddress": "马站镇蒲城社区",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0093",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.24313,
+          30.173642
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0093",
+        "name": "三山所",
+        "type": "所",
+        "pref": "绍兴府",
+        "guard": "临山卫",
+        "subguard": "三山所",
+        "parent": "临山卫",
+        "path": "浙江都指挥使司 > 绍兴府 > 临山卫 > 三山所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "三山所城",
+        "siteId": "ZJ-NB-CX-0001",
+        "modernAddress": "浒山街道",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0094",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.76271,
+          30.116126
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0094",
+        "name": "沥海所",
+        "type": "所",
+        "pref": "绍兴府",
+        "guard": "临山卫",
+        "subguard": "沥海所",
+        "parent": "临山卫",
+        "path": "浙江都指挥使司 > 绍兴府 > 临山卫 > 沥海所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "沥海所城遗址",
+        "siteId": "ZJ-SX-SY-0001",
+        "modernAddress": "沥海镇",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0095",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.616296,
+          30.113341
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0095",
+        "name": "三江所",
+        "type": "所",
+        "pref": "绍兴府",
+        "guard": "绍兴卫",
+        "subguard": "三江所",
+        "parent": "绍兴卫",
+        "path": "浙江都指挥使司 > 绍兴府 > 绍兴卫 > 三江所",
+        "group": "",
+        "status": "confirmed",
+        "modern": "三江所城遗址",
+        "siteId": "ZJ-SX-YC-0001",
+        "modernAddress": "斗门镇三江村东首东门头",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0107",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.28896,
+          28.228632
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0107",
+        "name": "楚门",
+        "type": "烽堠",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "楚门所",
+        "parent": "楚门所",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 楚门所 > 楚门",
+        "group": "",
+        "status": "candidate",
+        "modern": "楚门所城址",
+        "siteId": "ZJ-TZ-YH-0001",
+        "modernAddress": "楚门镇",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称不是明确的烽堠遗址，不能仅凭同名认定原址。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0116",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.550366,
+          28.415716
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0116",
+        "name": "盘马",
+        "type": "烽堠",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "",
+        "parent": "松门卫",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 盘马",
+        "group": "",
+        "status": "confirmed",
+        "modern": "盘马山烽火墩",
+        "siteId": "ZJ-TZ-WL-0005",
+        "modernAddress": "箬横镇盘马村盘马山顶",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0120",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.245432,
+          28.262584
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0120",
+        "name": "苔山",
+        "type": "烽堠",
+        "pref": "台州府",
+        "guard": "松门卫",
+        "subguard": "楚门所",
+        "parent": "楚门所",
+        "path": "浙江都指挥使司 > 台州府 > 松门卫 > 楚门所 > 苔山",
+        "group": "",
+        "status": "candidate",
+        "modern": "苔山寨城遗址（温岭巡检司城旧址）",
+        "siteId": "ZJ-TZ-YH-0003",
+        "modernAddress": "清港镇苔山村东南山顶",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称不是明确的烽堠遗址，不能仅凭同名认定原址。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0130",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.634235,
+          28.782501
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0130",
+        "name": "下旧城",
+        "type": "烽堠",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "桃渚所",
+        "parent": "桃渚所",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 桃渚所 > 下旧城",
+        "group": "",
+        "status": "candidate",
+        "modern": "下旧城遗址",
+        "siteId": "ZJ-TZ-LH-0001",
+        "modernAddress": "上城镇新城村旧城山",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称不是明确的烽堠遗址，不能仅凭同名认定原址。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0139",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.679703,
+          28.958678
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0139",
+        "name": "小渔西",
+        "type": "烽堠",
+        "pref": "台州府",
+        "guard": "海门卫",
+        "subguard": "健跳所",
+        "parent": "健跳所",
+        "path": "浙江都指挥使司 > 台州府 > 海门卫 > 健跳所 > 小渔西",
+        "group": "",
+        "status": "confirmed",
+        "modern": "小渔西烽火台",
+        "siteId": "ZJ-TZ-SM-0013",
+        "modernAddress": "沿赤乡小渔西村东侧墩山",
+        "source": "《浙江通志》卷九十八〈海防四·台州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0179",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.845639,
+          29.783533
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0179",
+        "name": "慈岙",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "大嵩所",
+        "parent": "大嵩所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 大嵩所 > 慈岙",
+        "group": "",
+        "status": "confirmed",
+        "modern": "慈岙烽火台",
+        "siteId": "ZJ-NB-BL-0015",
+        "modernAddress": "春晓镇民丰村北侧",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0185",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          122.02195,
+          29.811006
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0185",
+        "name": "梅山",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "霩衢所",
+        "parent": "霩衢所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 霩衢所 > 梅山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "梅山烽火台",
+        "siteId": "ZJ-NB-BL-0020",
+        "modernAddress": "梅山街道梅东村炮台下自然村北侧炮台山山顶",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0186",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.797685,
+          29.6676
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0186",
+        "name": "横山",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "大嵩所",
+        "parent": "大嵩所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 大嵩所 > 横山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "横山烽火台",
+        "siteId": "ZJ-NB-YZ-0004",
+        "modernAddress": "咸祥镇横山村横山山麓",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0201",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.952362,
+          29.799694
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0201",
+        "name": "虾𢈠",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "定海卫",
+        "subguard": "霩衢所",
+        "parent": "霩衢所",
+        "path": "浙江都指挥使司 > 宁波府 > 定海卫 > 霩衢所 > 虾𢈠",
+        "group": "",
+        "status": "candidate",
+        "modern": "虾腊烽火台",
+        "siteId": "ZJ-NB-BL-0012",
+        "modernAddress": "白峰镇下阳村虾腊自然村海拔50米山腰",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "虾𢈠／虾腊字形对应关系仍待核。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0222",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.973293,
+          29.6028
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0222",
+        "name": "东门岭",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "钱仓所",
+        "parent": "钱仓所",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 钱仓所 > 东门岭",
+        "group": "",
+        "status": "confirmed",
+        "modern": "东门岭烽火台",
+        "siteId": "ZJ-NB-XS-0005",
+        "modernAddress": "涂茨镇钱仓村北750米东门岭上",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0227",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.945299,
+          29.506494
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0227",
+        "name": "公屿",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "爵溪所",
+        "parent": "爵溪所",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 爵溪所 > 公屿",
+        "group": "",
+        "status": "confirmed",
+        "modern": "公屿峰堠（周家山防倭烽火台）",
+        "siteId": "ZJ-NB-XS-0010",
+        "modernAddress": "爵溪街道公屿农村周家山岗顶上",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0240",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.917946,
+          29.541473
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0240",
+        "name": "杉木",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "钱仓所",
+        "parent": "钱仓所",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 钱仓所 > 杉木",
+        "group": "",
+        "status": "confirmed",
+        "modern": "杉木洋烽火台",
+        "siteId": "ZJ-NB-XS-0008",
+        "modernAddress": "大徐镇杉木洋村东北台山上",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0246",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.957305,
+          29.437114
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0246",
+        "name": "赤坎",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "",
+        "parent": "昌国卫",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 赤坎",
+        "group": "",
+        "status": "confirmed",
+        "modern": "赤坎烽火台",
+        "siteId": "ZJ-NB-XS-0017",
+        "modernAddress": "丹东街道赤坎村北约50米炮台山顶",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0249",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.940351,
+          29.621407
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0249",
+        "name": "黄沙",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "昌国卫",
+        "subguard": "",
+        "parent": "昌国卫",
+        "path": "浙江都指挥使司 > 宁波府 > 昌国卫 > 黄沙",
+        "group": "",
+        "status": "candidate",
+        "modern": "黄沙炮台",
+        "siteId": "ZJ-NB-XS-0007",
+        "modernAddress": "涂茨镇黄沙村北2公里山上",
+        "source": "《浙江通志》卷九十七〈海防三·宁波府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "现代遗址名称不是明确的烽堠遗址，不能仅凭同名认定原址。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0253",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.50544,
+          30.093419
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0253",
+        "name": "施公山",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "观海卫",
+        "subguard": "龙山所",
+        "parent": "龙山所",
+        "path": "浙江都指挥使司 > 宁波府 > 观海卫 > 龙山所 > 施公山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "施公山烽火台",
+        "siteId": "ZJ-NB-CX-0008",
+        "modernAddress": "三北镇施公山村",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府临观段〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；民政属宁波慈溪县，临观防区见绍兴篇",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0255",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.571987,
+          30.064189
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0255",
+        "name": "石塘",
+        "type": "烽堠",
+        "pref": "宁波府",
+        "guard": "观海卫",
+        "subguard": "龙山所",
+        "parent": "龙山所",
+        "path": "浙江都指挥使司 > 宁波府 > 观海卫 > 龙山所 > 石塘",
+        "group": "",
+        "status": "confirmed",
+        "modern": "石塘山烽火台",
+        "siteId": "ZJ-NB-CX-0009",
+        "modernAddress": "龙山镇邱王村石塘山",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府临观段〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；民政属宁波慈溪县，临观防区见绍兴篇",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0265",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.417455,
+          30.279989
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0265",
+        "name": "赭山",
+        "type": "烽堠",
+        "pref": "杭州府",
+        "guard": "浙江都司",
+        "subguard": "海宁所",
+        "parent": "海宁所",
+        "path": "浙江都指挥使司 > 杭州府 > 浙江都司 > 海宁所 > 赭山",
+        "group": "",
+        "status": "candidate",
+        "modern": "萧山抗倭遗址（赭山巡检司城旧址）",
+        "siteId": "ZJ-HZ-XS-0001",
+        "modernAddress": "南阳镇龙虎村西",
+        "source": "《浙江通志》卷九十七〈海防三·杭州府〉；《明史》卷九十〈海宁千户所〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7097",
+        "notes": "直属都司守御千户所；原志分入杭州海防篇；本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线；此处杭州海宁所非嘉兴海盐县海宁卫",
+        "warning": "现代遗址名称不是明确的烽堠遗址，不能仅凭同名认定原址。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0306",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.453181,
+          27.230385
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0306",
+        "name": "南堡",
+        "type": "烽堠",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "蒲门所",
+        "parent": "蒲门所",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 蒲门所 > 南堡",
+        "group": "",
+        "status": "confirmed",
+        "modern": "南堡岭烽火台遗址",
+        "siteId": "ZJ-WZ-CN-0006",
+        "modernAddress": "沿浦镇南堡岭村后烟墩山",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0310",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.53418,
+          27.224475
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0310",
+        "name": "尖山",
+        "type": "烽堠",
+        "pref": "温州府",
+        "guard": "金乡卫",
+        "subguard": "",
+        "parent": "金乡卫",
+        "path": "浙江都指挥使司 > 温州府 > 金乡卫 > 尖山",
+        "group": "",
+        "status": "candidate",
+        "modern": "大尖山烽火台遗址",
+        "siteId": "ZJ-WZ-CN-0016",
+        "modernAddress": "渔寮乡崇安村大尖山巅",
+        "source": "《浙江通志》卷九十八〈海防四·温州府〉；《明史》卷九十〈浙江都司〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": "名为尖山的烽堠不止一处，本匹配对象存在同名歧义。"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ZJ-MAP-0339",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.329349,
+          30.16006
+        ]
+      },
+      "properties": {
+        "id": "ZJ-MAP-0339",
+        "name": "蔡山",
+        "type": "烽堠",
+        "pref": "绍兴府",
+        "guard": "临山卫",
+        "subguard": "三山所",
+        "parent": "三山所",
+        "path": "浙江都指挥使司 > 绍兴府 > 临山卫 > 三山所 > 蔡山",
+        "group": "",
+        "status": "confirmed",
+        "modern": "蔡山烽火台",
+        "siteId": "ZJ-NB-CX-0004",
+        "modernAddress": "匡堰镇樟树村蔡山",
+        "source": "《浙江通志》卷九十八〈海防四·绍兴府〉",
+        "url": "https://zh.wikisource.org/wiki/%E6%B5%99%E6%B1%9F%E9%80%9A%E5%BF%97_(%E5%9B%9B%E5%BA%AB%E5%85%A8%E6%9B%B8%E6%9C%AC)/%E5%8D%B7098",
+        "notes": "本行巡司/烽堠仅为文献列于该防区，非正式隶属或实证传警线",
+        "warning": ""
+      }
+    }
+  ]
+}
