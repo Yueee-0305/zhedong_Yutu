@@ -470,6 +470,9 @@
         mapTexture.colorSpace = THREE.SRGBColorSpace;
         mapTexture.needsUpdate = true;
         resize();
+      }, undefined, (error) => {
+        console.error("舆图图像加载失败", error);
+        statusText.textContent = "地图加载失败：请检查 assets/ming-zhejiang-map.jpg";
       });
 
       const paperMaterial = new THREE.MeshBasicMaterial({
@@ -567,26 +570,35 @@
         const vision = await FilesetResolver.forVisionTasks(
           "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.35/wasm"
         );
-
-        state.handLandmarker = await HandLandmarker.createFromOptions(vision, {
-          baseOptions: {
-            modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task",
-            delegate: "GPU"
-          },
-          runningMode: "VIDEO",
-          numHands: 1,
-          minHandDetectionConfidence: 0.55,
-          minHandPresenceConfidence: 0.55,
-          minTrackingConfidence: 0.5
-        });
-
-        statusText.textContent = "模型已加载：握拳 2 秒进入";
+        const baseOptions = {
+          modelAssetPath: "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task"
+        };
+        let delegateUsed = "";
+        for (const delegate of ["GPU", "CPU"]) {
+          try {
+            state.handLandmarker = await HandLandmarker.createFromOptions(vision, {
+              baseOptions: {...baseOptions, delegate},
+              runningMode: "VIDEO",
+              numHands: 1,
+              minHandDetectionConfidence: 0.55,
+              minHandPresenceConfidence: 0.55,
+              minTrackingConfidence: 0.5
+            });
+            delegateUsed = delegate;
+            break;
+          } catch (error) {
+            console.warn("MediaPipe " + delegate + " 初始化失败", error);
+          }
+        }
+        if (!state.handLandmarker) throw new Error("GPU 和 CPU 初始化均失败");
+        statusText.textContent = "手势模型就绪（" + delegateUsed + "）：握拳 2 秒进入";
         await useDemoVideo();
-        requestAnimationFrame(detectLoop);
       } catch (error) {
-        console.error(error);
-        statusText.textContent = "模型加载失败，请检查网络/CDN，或使用本地部署模型。";
+        console.error("MediaPipe 不可用，仍可进入鼠标模式", error);
+        statusText.textContent = "手势模型不可用，点击“鼠标体验”继续";
+        await useDemoVideo().catch(() => {});
       }
+      requestAnimationFrame(detectLoop);
     }
 
     function buildSiteIndex() {
@@ -622,6 +634,7 @@
         state.active = false;
         state.holdStartedAt = 0;
         state.lensVisible = 0;
+        state.pointerUntil = 0;
         stage.classList.remove("is-active");
         statusText.textContent = "已重新锁定：握拳 2 秒进入";
       });
@@ -640,6 +653,9 @@
     async function useDemoVideo() {
       stopCameraTracks();
       inputVideo.src = "./assets/vedio.mp4";
+      state.lastVideoTime = -1;
+      state.lastLandmarks = null;
+      state.holdStartedAt = 0;
       inputVideo.loop = true;
       inputVideo.muted = true;
       inputVideo.playsInline = true;
@@ -661,6 +677,9 @@
           audio: false
         });
         inputVideo.srcObject = stream;
+        state.lastVideoTime = -1;
+        state.lastLandmarks = null;
+        state.holdStartedAt = 0;
         inputVideo.loop = false;
         await inputVideo.play();
         state.source = "camera";
@@ -685,9 +704,13 @@
         if (inputVideo.currentTime !== state.lastVideoTime) {
           state.lastVideoTime = inputVideo.currentTime;
           const now = performance.now();
-          const results = state.handLandmarker.detectForVideo(inputVideo, now);
-          updateGesture(results, now);
-          drawPreview(results);
+          try {
+            const results = state.handLandmarker.detectForVideo(inputVideo, now);
+            updateGesture(results, now);
+            drawPreview(results);
+          } catch (error) {
+            console.warn("忽略本帧识别异常", error);
+          }
         }
       } else {
         drawPreview(null);
@@ -796,11 +819,11 @@
       if (inputVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
         previewCtx.translate(w, 0);
         previewCtx.scale(-1, 1);
-        previewCtx.filter = "blur(12px) saturate(0.75) brightness(0.78)";
+        previewCtx.filter = "blur(20px) saturate(0.48) brightness(0.60)";
         previewCtx.drawImage(inputVideo, 0, 0, w, h);
         previewCtx.filter = "none";
         previewCtx.setTransform(1, 0, 0, 1, 0, 0);
-        previewCtx.fillStyle = "rgba(6, 5, 4, 0.18)";
+        previewCtx.fillStyle = "rgba(6, 5, 4, 0.30)";
         previewCtx.fillRect(0, 0, w, h);
       }
 
