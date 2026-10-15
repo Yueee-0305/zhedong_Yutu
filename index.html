@@ -229,6 +229,8 @@
       border-radius:8px; background:rgba(22,13,6,.75);
       color:#fbe7bd; backdrop-filter:blur(12px);
     }
+    .site-index summary { cursor:pointer; font-size:13px; letter-spacing:.03em; }
+    .site-index nav { padding-top:10px; }
     .site-index h2 { font-size:14px; font-weight:500; margin:0 0 6px; }
     .site-index p {font-size:11px; opacity:.75; line-height:1.5; margin:0 0 8px;}
     .site-list { display:grid;grid-template-columns:1fr 1fr;gap:6px; }
@@ -347,12 +349,15 @@
       <span id="siteMeta"></span>
     </aside>
 
-    <nav class="site-index" aria-label="卫所图像定位索引">
-      <h2>图上卫所 · 位置校勘</h2>
-      <p>以舆图原始像素与文字为准，不使用现代经纬度强行投影。部分名称关系待逐字核查。</p>
-      <div id="siteList" class="site-list"></div>
-      <p class="notice">点击地名定位；移动鼠标也可探索</p>
-    </nav>
+    <details class="site-index">
+      <summary>卫所定位 · 展开索引</summary>
+      <nav aria-label="卫所图像定位索引">
+        <h2>图上卫所 · 位置校勘</h2>
+        <p>以舆图原始像素与文字为准，不使用现代经纬度强行投影。部分名称关系待逐字核查。</p>
+        <div id="siteList" class="site-list"></div>
+        <p class="notice">点击地名定位；移动鼠标也可探索</p>
+      </nav>
+    </details>
 
     <div class="locked">
       <div class="locked-inner">
