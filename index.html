@@ -352,8 +352,8 @@
     <details class="site-index">
       <summary>卫所定位 · 展开索引</summary>
       <nav aria-label="卫所图像定位索引">
-        <h2>图上卫所 · 位置校勘</h2>
-        <p>以舆图原始像素与文字为准，不使用现代经纬度强行投影。部分名称关系待逐字核查。</p>
+        <h2>图上卫所 · 文献对照</h2>
+        <p>已收录图上同名卫所4处，点击查看原图标注、历史方位及史料依据。坐标采用原图像素。</p>
         <div id="siteList" class="site-list"></div>
         <p class="notice">点击地名定位；移动鼠标也可探索</p>
       </nav>
@@ -388,17 +388,10 @@
     const MAP_SIZE = { width: 1600, height: 1220 };
     const HOLD_TO_ENTER_MS = 2000;
 
-    // 古舆图图像坐标：以原图 1600×1220 左上角为 (0,0)，不是经纬度。
-    // 明嘉靖《浙江地图》标签锚点逐区校准；名称/制度信息参考浙东海防建制核查表。
-    const STRONGHOLDS = [
-      { name:"观海卫", x:929, y:525, type:"沿海卫", evidence:"图上“观海”地名附近；属图示定位，不等于现存卫城测绘坐标。", meta:"洪武二十年（1387）建置。宁波府慈溪县沿海防御节点。" },
-      { name:"临山卫", x:955, y:469, type:"沿海卫", evidence:"图上“临山卫”一带；与观海区域相近，注意古图地理比例不均。", meta:"杭州湾南岸明代卫所防区的重要节点。" },
-      { name:"定海所", x:1018, y:513, type:"千户所·名称待核", evidence:"画上“定海”附近，所、卫具体对应仍需版本校勘。", meta:"与海口通道防御相关；不等同于近代舟山定海古城。" },
-      { name:"昌国卫", x:1297, y:607, type:"沿海卫", evidence:"海岛旁方框中的“昌国卫”标签；可直接据原图锚定。", meta:"舟山岛屿海防节点。显示位置是图中标签而非现代经纬度。" },
-      { name:"石浦二所", x:1113, y:713, type:"所级组合标识", evidence:"图上“石浦二所”的组合标签附近；未人为拆为两个图像点。", meta:"石浦前后所相关的沿海防御区域；两所并非必然同址。" },
-      { name:"台州卫", x:948, y:696, type:"府城卫", evidence:"台州卫城及相邻标识区域的图上锚点。", meta:"台州府城守备建置，不能与海门卫混同。" },
-      { name:"温州卫", x:911, y:911, type:"府城卫", evidence:"原图温州卫及温州府城一带图示。", meta:"温州府城守备节点，与磐石卫、宁村所等不同。" }
-    ].map(site => ({ ...site, u:site.x/MAP_SIZE.width, v:1-site.y/MAP_SIZE.height }));
+    // 仅从独立数据文件加载已确认的《浙江地图》图上卫所标注。
+    // 坐标以 1600×1220 原图左上角为原点，展示位置不代表现代地理经纬度。
+    const VERIFIED_SITES_URL = "./assets/historical-map-verified.json";
+    let STRONGHOLDS = [];
 
     const HAND_CONNECTIONS = [
       [0,1], [1,2], [2,3], [3,4],
@@ -451,7 +444,7 @@
 
     initThree();
     bindControls();
-    buildSiteIndex();
+    loadVerifiedSites();
     initMediaPipe();
 
     function initThree() {
@@ -608,8 +601,51 @@
       requestAnimationFrame(detectLoop);
     }
 
+    async function loadVerifiedSites() {
+      const list = document.querySelector("#siteList");
+      try {
+        const response = await fetch(VERIFIED_SITES_URL, { cache: "no-cache" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        if (data.imageWidth !== MAP_SIZE.width || data.imageHeight !== MAP_SIZE.height) {
+          throw new Error("图像尺寸与坐标基准不一致");
+        }
+        if (!Array.isArray(data.sites) || data.sites.length === 0) {
+          throw new Error("点位数据为空");
+        }
+        const valid = data.sites.every(site =>
+          typeof site.name === "string" && site.name.length > 0 &&
+          typeof site.mapLabel === "string" && site.mapLabel.length > 0 &&
+          typeof site.type === "string" && site.type.length > 0 &&
+          typeof site.source === "string" && site.source.length > 0 &&
+          Number.isFinite(site.x) && site.x >= 0 && site.x <= MAP_SIZE.width &&
+          Number.isFinite(site.y) && site.y >= 0 && site.y <= MAP_SIZE.height
+        );
+        if (!valid) throw new Error("点位字段校验失败");
+
+        STRONGHOLDS = data.sites.map(site => ({
+          ...site,
+          u: site.x / MAP_SIZE.width,
+          v: 1 - site.y / MAP_SIZE.height,
+          evidence: "原图文字：" + site.mapLabel + "｜文献：" + site.source,
+          meta: [
+            site.period ? "建置：" + site.period : "",
+            site.historicalLocation ? "史载方位：" + site.historicalLocation : ""
+          ].filter(Boolean).join("；")
+        }));
+        markerGroup.clear();
+        createSiteMarkers();
+        resize();
+        buildSiteIndex();
+      } catch (error) {
+        console.error("卫所数据加载失败", error);
+        list.textContent = "数据加载失败，请刷新页面重试。";
+      }
+    }
+
     function buildSiteIndex() {
       const list = document.querySelector("#siteList");
+      list.replaceChildren();
       STRONGHOLDS.forEach(site => {
         const button = document.createElement("button");
         button.type = "button";
