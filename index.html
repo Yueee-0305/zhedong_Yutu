@@ -243,6 +243,9 @@
     .site-index nav { padding-top:10px; }
     .site-index h2 { font-size:14px; font-weight:500; margin:0 0 6px; }
     .site-index p {font-size:11px; opacity:.75; line-height:1.5; margin:0 0 8px;}
+    .site-group { padding-top: 8px; margin-top: 8px; border-top:1px solid rgba(255,226,159,.15); }
+    .site-group:first-child {border-top:0; margin-top:0;}
+    .site-group h3 { margin:0 0 7px; color:#ffe6ae; font-size:12px; font-weight:500; }
     .site-list { display:grid;grid-template-columns:1fr 1fr;gap:6px; }
     .site-list button {font-size:12px; text-align:left; padding:7px;}
     .site-index .notice {color:#f9d586;margin:10px 0 0;}
@@ -363,9 +366,9 @@
     <details class="site-index">
       <summary>卫所定位 · 展开索引</summary>
       <nav aria-label="卫所图像定位索引">
-        <h2>图上卫所 · 文献对照</h2>
-        <p>已收录图上同名卫所4处，点击查看原图标注、历史方位及史料依据。坐标采用原图像素。</p>
-        <div id="siteList" class="site-list"></div>
+        <h2>浙东六卫 · 所城沿革</h2>
+        <p id="siteCount">依据《浙江地图》原文关联卫所与所城，点击地名查看历史沿革。图中坐标为文字标注的位置。</p>
+        <div id="siteList"></div>
         <p class="notice">点击地名定位；移动鼠标也可探索</p>
       </nav>
     </details>
@@ -631,6 +634,7 @@
           typeof site.type === "string" && site.type.length > 0 &&
           typeof site.source === "string" && site.source.length > 0 &&
           typeof site.history === "string" && site.history.trim().length > 0 &&
+          typeof site.group === "string" && site.group.trim().length > 0 &&
           Number.isFinite(site.x) && site.x >= 0 && site.x <= MAP_SIZE.width &&
           Number.isFinite(site.y) && site.y >= 0 && site.y <= MAP_SIZE.height
         );
@@ -656,21 +660,38 @@
     function buildSiteIndex() {
       const list = document.querySelector("#siteList");
       list.replaceChildren();
-      STRONGHOLDS.forEach(site => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = site.name;
-        button.title = site.type + " | " + site.evidence;
-        button.addEventListener("click", () => {
-          unlockExperience();
-          state.smoothUv.set(site.u,site.v);
-          state.targetUv.set(site.u,site.v);
-          state.pointerUntil = performance.now() + 3000;
-          state.lensVisible = 1;
-          statusText.textContent = "定位：" + site.name + "（" + site.type + "）";
-        });
-        list.appendChild(button);
-      });
+      const groupOrder = ["临山卫","观海卫","定海卫","昌国卫","海门卫","松门卫"];
+      const weiCount = STRONGHOLDS.filter(s => s.type === "沿海卫").length;
+      document.querySelector("#siteCount").textContent =
+        "本次收录 " + STRONGHOLDS.length + " 处图文关联，含 " + weiCount +
+        " 处卫级标注；按照六卫及所级隶属分组。点击地名查看历史沿革。";
+      for (const groupName of groupOrder) {
+        const sites = STRONGHOLDS.filter(site => site.group === groupName);
+        if (!sites.length) continue;
+        const section = document.createElement("section");
+        section.className = "site-group";
+        const heading = document.createElement("h3");
+        heading.textContent = groupName;
+        const buttons = document.createElement("div");
+        buttons.className = "site-list";
+        for (const site of sites) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = site.name;
+          button.title = site.type + "｜图中文字：" + site.mapLabel;
+          button.addEventListener("click", () => {
+            unlockExperience();
+            state.smoothUv.set(site.u, site.v);
+            state.targetUv.set(site.u, site.v);
+            state.pointerUntil = performance.now() + 3500;
+            state.lensVisible = 1;
+            statusText.textContent = "已定位：" + site.name + "（" + site.type + "）";
+          });
+          buttons.appendChild(button);
+        }
+        section.append(heading,buttons);
+        list.appendChild(section);
+      }
     }
 
     function bindControls() {
@@ -950,7 +971,7 @@
           bestDistance = d;
         }
       });
-      return bestDistance < 0.95 ? best : null;
+      return bestDistance < 0.66 ? best : null;
     }
 
     function resize() {
@@ -1035,7 +1056,8 @@
       siteCard.style.opacity = 1;
       siteName.textContent = site.name;
       siteMeta.textContent = site.meta;
-      siteSource.textContent = "史料：" + site.source + "｜图上原文：" + site.mapLabel;
+      siteSource.textContent = "史料：" + site.source + "｜图上原文：" + site.mapLabel +
+        (site.heritageName ? "｜关联遗址：" + site.heritageName : "");
     }
   </script>
 </body>
