@@ -426,6 +426,7 @@
       active: false,
       handLandmarker: null,
       lastVideoTime: -1,
+      lastInferenceAt: 0,
       holdStartedAt: 0,
       lastLandmarks: null,
       gesture: "none",
@@ -522,8 +523,9 @@
 
             vec2 sampleUv = centerUv + vec2(p.x * radiusUv.x, p.y * radiusUv.y) / magnify;
             vec4 texel = texture2D(mapTex, clamp(sampleUv, 0.0, 1.0));
-            float feather = smoothstep(1.0, 0.78, dist);
-            float glow = smoothstep(1.0, 0.18, dist);
+            // GLSL smoothstep 的两个边界须从小到大，避免显卡驱动产生未定义效果。
+            float feather = 1.0 - smoothstep(0.78, 1.0, dist);
+            float glow = 1.0 - smoothstep(0.18, 1.0, dist);
             vec3 lit = texel.rgb * (1.22 + glow * 0.42) + warm * (0.13 + glow * 0.18);
             gl_FragColor = vec4(lit, alpha * feather);
           }
@@ -659,8 +661,10 @@
       stopCameraTracks();
       inputVideo.src = "./assets/vedio.mp4";
       state.lastVideoTime = -1;
+      state.lastInferenceAt = 0;
       state.lastLandmarks = null;
       state.holdStartedAt = 0;
+      state.pointerUntil = 0;
       inputVideo.loop = true;
       inputVideo.muted = true;
       inputVideo.playsInline = true;
@@ -683,8 +687,10 @@
         });
         inputVideo.srcObject = stream;
         state.lastVideoTime = -1;
+        state.lastInferenceAt = 0;
         state.lastLandmarks = null;
         state.holdStartedAt = 0;
+        state.pointerUntil = 0;
         inputVideo.loop = false;
         await inputVideo.play();
         state.source = "camera";
@@ -706,9 +712,11 @@
 
     function detectLoop() {
       if (state.handLandmarker && inputVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-        if (inputVideo.currentTime !== state.lastVideoTime) {
+        const now = performance.now();
+        // 将同步 CV 推理限制在约 30fps，减少主线程卡顿与 GPU 占用。
+        if (inputVideo.currentTime !== state.lastVideoTime && now - state.lastInferenceAt >= 33) {
           state.lastVideoTime = inputVideo.currentTime;
-          const now = performance.now();
+          state.lastInferenceAt = now;
           try {
             const results = state.handLandmarker.detectForVideo(inputVideo, now);
             updateGesture(results, now);
